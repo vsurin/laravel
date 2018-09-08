@@ -17,3 +17,11 @@ Route::get('/', function () {
 
 Route::resource('category','CategoryController');
 Route::resource('posts','PostController');
+
+Route::get('api/posts/', function () {
+	$posts = App\Post::all();
+	return response()->json(['posts' => $posts]); 
+});
+Route::get('api/posts/{post}', function (App\Post $post) {
+    return response()->json(['posts' => $post]); 
+});
