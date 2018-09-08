@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Тестовое приложение</title	>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+	<title>Test project</title	>	
+	<link href="/css/app.css" rel="stylesheet">
+	<script src="js/app.js"></script>
 </head>
 	<body>
 		<div class="container">

@@ -20,3 +20,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+setTimeout(function(){
+  $('.alert-success').hide(100);
+  $('.alert-danger').hide(100);
+}, 2000);
+

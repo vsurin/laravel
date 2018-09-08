@@ -28,7 +28,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $categories = Category::pluck('title', 'id');
+
+        return view('post.create', compact('categories'));
     }
 
 
@@ -41,14 +43,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'image' => 'required',
+            'title' => 'required|max:255',
+            'content' => 'required|max:255',
             'id_category' => 'required',
         ]);
-        Post::create($request->all());
+
+        $requestAll = $request->all();
+        $requestAll['image'] = $this->uploadFile($request);            
+
+        Post::create($requestAll);
+
         return redirect()->route('posts.index')
-                        ->with('success','Post created successfully');
+            ->with('success','Post created successfully');
     }
 
 

@@ -3,10 +3,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Тестовое приложение</h2>
+                <h1>List category</h1>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('category.create') }}"> Create New Article</a>
+                <a class="btn" href="http://127.0.0.1:8000">Home</a>
+                <a class="btn" href="{{ route('category.create') }}">Create New Category</a>
             </div>
         </div>
     </div>

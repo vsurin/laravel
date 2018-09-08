@@ -3,10 +3,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Тестовое приложение</h2>
+                <h1>Lists post</h1>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New Post</a>
+                <a class="btn" href="http://127.0.0.1:8000">Home</a>
+                <a class="btn" href="{{ route('posts.create') }}">Create New Post</a>
             </div>
         </div>
     </div>
@@ -32,7 +33,11 @@
         <td>{{ ++$i }}</td>
         <td>{{ $value->title}}</td> 
         <td>{{ $value->content}}</td> 
-        <td><img src="/upload/{{ $value->image }}" height="50" /></td> 
+        <td>
+            @if($value->image != '')    
+                <img src="/upload/{{ $value->image }}" height="50" />
+            @endif  
+        </td> 
         <td>{{ $value->category->title}}</td> 
         <td>
             <a class="btn btn-info" href="{{ route('posts.show',$value->id) }}">Show</a>

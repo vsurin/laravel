@@ -4,10 +4,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Post</h2>
+                <h1>Edit Post</h1>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
+                <a class="btn" href="http://127.0.0.1:8000">Home</a>
+                <a class="btn" href="{{ route('posts.index') }}"> Back</a>
             </div>
         </div>
     </div>
