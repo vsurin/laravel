@@ -31,8 +31,8 @@
     @foreach ($posts as $value)
     <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ $value->title}}</td> 
-        <td>{{ $value->content}}</td> 
+        <td>{{ $value->title}}</td>
+        <td>{!! \Illuminate\Support\Str::limit($value->content, 20,'....')  !!}</td>
         <td>
             @if($value->image != '')    
                 <img src="/upload/{{ $value->image }}" height="50" />
