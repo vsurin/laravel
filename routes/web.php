@@ -22,6 +22,8 @@ Route::get('api/posts/{id}', function ($id = 1) {
     $offest = ($id - 1) * 2;
 
 	$posts = DB::table('post')
+        ->select('post.id', 'post.content', 'post.title', 'category.title as c_title')
+        ->join('category', 'category.id', '=', 'post.id_category')
         ->offset($offest)
         ->limit(2)
         ->get();
