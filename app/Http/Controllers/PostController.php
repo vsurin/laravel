@@ -104,6 +104,7 @@ class PostController extends Controller
 
         $requestAll = $request->all();
         $requestAll['image'] = $this->uploadFile($request);
+
         if ($requestAll['image'] == '') {
             unset($requestAll['image']);
         }        
@@ -138,10 +139,11 @@ class PostController extends Controller
 
         if ($file) {
             $destinationPath = 'upload';
+            $name = md5(microtime() . rand(0, 9999)).'_'.$file->getClientOriginalName();
 
-            $file->move($destinationPath, $file->getClientOriginalName());
+            $file->move($destinationPath, $name);
 
-            return $file->getClientOriginalName();
+            return $name;
         }        
 
         return '';
