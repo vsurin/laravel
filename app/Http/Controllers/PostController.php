@@ -101,7 +101,7 @@ class PostController extends Controller
             'content' => 'required',            
             'id_category' => 'required',                        
         ]);
-        
+
         $requestAll = $request->all();
         $requestAll['image'] = $this->uploadFile($request);
         if ($requestAll['image'] == '') {
