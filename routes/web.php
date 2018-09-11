@@ -31,6 +31,8 @@ Route::get('api/posts/{id}', function ($id = 1) {
 Route::get('api/count/posts/', function () {
     return response()->json(['count' => App\Post::count()]);
 });
-Route::get('api/posts/{post}', function (App\Post $post) {
-    return response()->json(['posts' => $post]); 
+Route::get('api/post/{id}', function ($id = 0) {
+    $post = \App\Post::find($id);
+
+    return response()->json(['post' => $post]);
 });
