@@ -19,7 +19,6 @@ class CategoryController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +28,6 @@ class CategoryController extends Controller
     {
         return view('category.create');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -49,7 +47,6 @@ class CategoryController extends Controller
             ->with('success','Category created successfully');
     }
 
-
     /**
      * Display the specified resource.
      *
@@ -63,7 +60,6 @@ class CategoryController extends Controller
         return view('category.show',compact('category'));
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,7 +72,6 @@ class CategoryController extends Controller
 
         return view('category.edit',compact('category'));
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -96,7 +91,6 @@ class CategoryController extends Controller
         return redirect()->route('category.index')
             ->with('success','Category updated successfully');
     }
-
 
     /**
      * Remove the specified resource from storage.

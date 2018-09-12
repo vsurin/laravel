@@ -18,23 +18,6 @@ Route::get('/', function () {
 Route::resource('category','CategoryController');
 Route::resource('posts','PostController');
 
-Route::get('api/posts/{id}', function ($id = 1) {
-    $offest = ($id - 1) * 2;
-
-	$posts = DB::table('post')
-        ->select('post.id', 'post.content', 'post.title', 'post.image', 'category.title as c_title')
-        ->join('category', 'category.id', '=', 'post.id_category')
-        ->offset($offest)
-        ->limit(2)
-        ->get();
-
-	return response()->json(['posts' => $posts]); 
-});
-Route::get('api/count/posts/', function () {
-    return response()->json(['count' => App\Post::count()]);
-});
-Route::get('api/post/{id}', function ($id = 0) {
-    $post = \App\Post::find($id);
-
-    return response()->json(['post' => $post]);
-});
+Route::get('api/posts/{id}','ApiController@index');
+Route::get('api/post/show/{post}','ApiController@show');
+Route::get('api/post/count','ApiController@count');

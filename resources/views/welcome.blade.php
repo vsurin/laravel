@@ -68,8 +68,8 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="links">
-                    <a href="http://127.0.0.1:8000/category">Categories</a>
-                    <a href="http://127.0.0.1:8000/posts">Posts</a>
+                    <a href="/category">Categories</a>
+                    <a href="/posts">Posts</a>
                 </div>
             </div>
         </div>
