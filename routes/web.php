@@ -18,6 +18,6 @@ Route::get('/', function () {
 Route::resource('category','CategoryController');
 Route::resource('posts','PostController');
 
-Route::get('api/posts/{id}','ApiController@index');
+Route::get('api/posts/{limit}/{offset}','ApiController@index');
 Route::get('api/post/show/{post}','ApiController@show');
 Route::get('api/post/count','ApiController@count');

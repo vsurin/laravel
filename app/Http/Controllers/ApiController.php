@@ -8,27 +8,20 @@ use App\Post;
 class ApiController extends Controller
 {
     /**
-     * Количество записей на странице
-     *
-     * @var int
-     */
-    private $countPost = 2;
-
-    /**
      * Вывод постов
      *
      * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index(int $id)
+    public function index(int $limit, int $offset)
     {
-        $offest = ($id - 1) * $this->countPost;
+        $offset = $limit * ($offset - 1);
 
         $posts = DB::table('post')
             ->select('post.id', 'post.content', 'post.title', 'post.image', 'category.title as c_title')
             ->join('category', 'category.id', '=', 'post.id_category')
-            ->offset($offest)
-            ->limit(2)
+            ->offset($offset)
+            ->limit($limit)
             ->get();
 
         return response()->json(['posts' => $posts]);
